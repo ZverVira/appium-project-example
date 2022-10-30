@@ -1,0 +1,9 @@
+deviceName=Android Emulator
+deviceOrientation=portrait
+platformVersion=9
+platformName=Android
+appPackage=com.android.calculator2
+appActivity=com.android.calculator2.Calculator
+automationName=UIAutomator2
+noSign=true
+noReset=false

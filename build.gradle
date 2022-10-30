@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+}
+
+defaultTasks 'clean', 'test'
+
+// Project information
+def projectGroup = 'net.testiteasy'
+def projectVersion = '1.0-SNAPSHOT'
+def projectDescription = 'Appium Wikipedia cross-platform simple test example'
+
+// Dependencies versions
+def jetbrainsAnnotationVersion = '23.0.0'
+def selenideAppiumVersion = '2.2.0'
+def appiumJavaVersion = '8.2.0'
+def cucumberVersion = '7.8.1'
+def logbackVersion = '1.4.4'
+def junitJupiterVersion = '5.9.0'
+def junitPlatformVersion = '1.9.0'
+
+
+group = "$projectGroup"
+version = "$projectVersion"
+description = "$projectDescription"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+        mavenContent { snapshotsOnly() }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains:annotations:$jetbrainsAnnotationVersion"
+    testImplementation "com.codeborne:selenide-appium:$selenideAppiumVersion"
+    testImplementation "io.appium:java-client:$appiumJavaVersion"
+
+    testImplementation "io.cucumber:cucumber-junit:$cucumberVersion"
+    testImplementation "io.cucumber:cucumber-java:$cucumberVersion"
+
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:$cucumberVersion"
+
+    testImplementation "ch.qos.logback:logback-classic:$logbackVersion"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+    testImplementation "org.junit.platform:junit-platform-suite:$junitPlatformVersion"
+
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
+}
+
+task libs(type: Sync) {
+    from configurations.compileClasspath
+    from configurations.testRuntimeClasspath
+    into "$buildDir/lib"
+}
+
+testClasses.dependsOn libs
+
+[compileJava, compileTestJava]*.options.collect {options -> options.encoding = 'UTF-8'}
+[compileJava, compileTestJava]*.options.collect {options -> options.debug = true}
+[compileJava, compileTestJava]*.sourceCompatibility = JavaVersion.VERSION_17
+[compileJava, compileTestJava]*.targetCompatibility = JavaVersion.VERSION_17
+
+test {
+    useJUnitPlatform()
+    systemProperties = [
+            'file.encoding' : 'UTF-8',
+            'BUILD_URL' : System.getenv()['BUILD_URL'],
+            'device.name' : 'pixel',
+            'device.platform' : 'android',
+            'env.type' : 'qa',
+            'running.platform' : 'local'
+    ]
+    testLogging.showStandardStreams = true
+}
