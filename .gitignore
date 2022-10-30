@@ -1,0 +1,28 @@
+# MacOS files
+.DS_Store/
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Compiled output folders
+target/
+out/
+
+# JDT-specific
+.classpath
+
+# Gradle
+.gradle
+**/build/
+!src/**/build/
+build
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# IntelliJ
+.idea/
+.idea

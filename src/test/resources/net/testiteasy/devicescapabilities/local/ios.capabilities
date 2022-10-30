@@ -1,0 +1,6 @@
+appiumVersion=1.22.3
+deviceName=iPhone Simulator
+deviceOrientation=portrait
+platformVersion=16
+platformName=iOS
+automationName=XCUITest
