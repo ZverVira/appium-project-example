@@ -1,4 +1,4 @@
-package net.testiteasy.screens.main;
+package net.testiteasy.screens.search;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static net.testiteasy.utils.parameters.TestDataParams.testConfig;
 
-public class MainScreen {
+public class SearchScreen {
 
     private final By SKIP_BUTTON = By.id("Skip");
 
@@ -28,9 +28,7 @@ public class MainScreen {
                 $(SKIP_BUTTON).click();
             }
         }
-    }
 
-    public void checkExploreIcon() {
         EXPLORE_ICON.shouldBe(Condition.visible);
     }
 
