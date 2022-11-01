@@ -22,13 +22,13 @@ public class AppiumLocalIOSDriver {
         options.merge(capabilitiesLoader.getCapabilities(DeviceName.IPHONE_SIMULATOR));
         options.setDeviceName("iPhone 8");
         options.setApp(getFile().getAbsolutePath());
-        options.setPlatformVersion("15.5"); // it seems calculator app is not available in later Android versions
+        options.setPlatformVersion("15.5");
         options.setNewCommandTimeout(Duration.ofSeconds(11));
         options.setFullReset(false);
         options.autoAcceptAlerts();
 
         //Create IOSDriver instance and connect to the Appium server.
-        //It will launch the Calculator App in iOS Device using the configurations specified in Desired Capabilities
+        //It will launch the Wikipedia App in iOS Device using the configurations specified in Desired Capabilities
 
         try {
             return new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), options);

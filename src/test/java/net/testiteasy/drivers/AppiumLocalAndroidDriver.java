@@ -20,7 +20,7 @@ public class AppiumLocalAndroidDriver {
     public WebDriver createDriver() {
         UiAutomator2Options options = new UiAutomator2Options();
         options.merge(capabilitiesLoader.getCapabilities(DeviceName.PIXEL_3_V9));
-        options.setPlatformVersion("9.0"); // it seems calculator app is not available in later Android versions
+        options.setPlatformVersion("9.0");
         options.setAppPackage("org.wikipedia");
         options.setAppActivity(".main.MainActivity");
         options.setApp(getFile().getAbsolutePath());
@@ -28,7 +28,7 @@ public class AppiumLocalAndroidDriver {
         options.setFullReset(false);
 
         //Create AndroidDriver instance and connect to the Appium server.
-        //It will launch the Calculator App in Android Device using the configurations specified in Desired Capabilities
+        //It will launch the Wikipedia App in Android Device using the configurations specified in Desired Capabilities
 
         try {
             return new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), options);

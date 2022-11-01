@@ -1,9 +1,9 @@
-deviceName=Android Emulator
+deviceName=pixel_3_v9
 deviceOrientation=portrait
 platformVersion=9
 platformName=Android
-appPackage=com.android.calculator2
-appActivity=com.android.calculator2.Calculator
+appPackage=org.wikipedia
+appActivity=.main.MainActivity
 automationName=UIAutomator2
 noSign=true
 noReset=false

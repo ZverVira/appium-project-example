@@ -8,7 +8,6 @@ import net.testiteasy.drivers.AppiumLocalServer;
 import net.testiteasy.utils.variables.RunningPlatform;
 import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
 
-import static com.codeborne.selenide.Selenide.open;
 import static net.testiteasy.utils.parameters.TestDataParams.testConfig;
 
 @SuppressWarnings("unused")
@@ -22,8 +21,6 @@ public class MobileAppiumDriverFactory {
 
         WebDriverRunner.addListener(new AbstractWebDriverEventListener() {
         });
-
-        open();
     }
 
     @Step("Run Appium Server")
