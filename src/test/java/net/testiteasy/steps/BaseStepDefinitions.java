@@ -4,10 +4,12 @@ import com.codeborne.selenide.logevents.SimpleReport;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.Given;
 import net.testiteasy.configuration.MobileAppiumDriverFactory;
 import org.jetbrains.annotations.NotNull;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
 public class BaseStepDefinitions {
 
@@ -20,6 +22,11 @@ public class BaseStepDefinitions {
         report.start();
 
         driverFactory.getWebDriverInstance();
+    }
+
+    @Given("^user open application$")
+    public void userOpenApplication() {
+        open();
     }
 
     @After

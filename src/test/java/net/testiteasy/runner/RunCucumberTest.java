@@ -1,5 +1,6 @@
 package net.testiteasy.runner;
 
+import jdk.jfr.Description;
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.ConfigurationParameters;
 import org.junit.platform.suite.api.IncludeEngines;
@@ -16,5 +17,6 @@ import static io.cucumber.core.options.Constants.GLUE_PROPERTY_NAME;
         @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "net.testiteasy"),
         @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@regression and @smoke")
 })
+@Description("Runner class with specified cucumber options")
 public class RunCucumberTest {
 }
