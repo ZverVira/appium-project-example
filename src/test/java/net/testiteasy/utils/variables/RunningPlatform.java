@@ -1,5 +1,6 @@
 package net.testiteasy.utils.variables;
 
+@SuppressWarnings("unused")
 public enum RunningPlatform {
 
     LOCAL("local"),
