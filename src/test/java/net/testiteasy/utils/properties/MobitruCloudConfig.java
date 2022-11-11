@@ -16,8 +16,4 @@ public interface MobitruCloudConfig extends Config {
 
     @Key("mobitru.auth.key")
     String mobitruAuthKey();
-
-    @Key("mobitru.device.serial")
-    @DefaultValue("711KPGS0729455")
-    String mobitruDeviceSerial();
 }
