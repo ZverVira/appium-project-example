@@ -28,7 +28,6 @@ public class TestDataParams {
     private final String appPackage;
     private final String appActivity;
 
-    private final String mobitruDeviceSerial;
     private final String mobitruProjectName;
     private final String mobitruAuthorizationKey;
 
@@ -50,7 +49,6 @@ public class TestDataParams {
         appPackage = testConfig.appPackage();
         appActivity = testConfig.appActivity();
 
-        mobitruDeviceSerial = cloudConfig.mobitruDeviceSerial();
         mobitruProjectName = cloudConfig.mobitruProjectName();
         mobitruAuthorizationKey = cloudConfig.mobitruAuthKey();
     }
@@ -106,10 +104,6 @@ public class TestDataParams {
 
     public String getAppActivity() {
         return appActivity;
-    }
-
-    public String getMobitruDeviceSerial() {
-        return mobitruDeviceSerial;
     }
 
     public String getMobitruProjectName() {
