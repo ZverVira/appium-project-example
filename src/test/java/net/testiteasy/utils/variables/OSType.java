@@ -1,5 +1,8 @@
 package net.testiteasy.utils.variables;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 public enum OSType {
 
     ANDROID("Android"),
@@ -15,8 +18,13 @@ public enum OSType {
         return osType;
     }
 
+    @Contract(pure = true)
     @Override
-    public String toString() {
-        return osType;
+    public @NotNull String toString() {
+        return """
+               OSType = {
+               'OS Type is ' = '%s'
+               }
+               """.formatted(osType);
     }
 }

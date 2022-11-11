@@ -1,9 +1,0 @@
-deviceName=pixel_3_v9
-deviceOrientation=portrait
-platformVersion=9
-platformName=Android
-appPackage=org.wikipedia
-appActivity=.main.MainActivity
-automationName=UIAutomator2
-noSign=true
-noReset=false

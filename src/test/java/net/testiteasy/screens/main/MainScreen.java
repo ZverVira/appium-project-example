@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static net.testiteasy.utils.parameters.TestDataParams.testConfig;
 
+@SuppressWarnings("unused")
 public class MainScreen {
 
     private final By SKIP_BUTTON = By.id("Skip");

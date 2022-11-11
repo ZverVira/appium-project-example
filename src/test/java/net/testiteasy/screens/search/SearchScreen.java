@@ -10,6 +10,11 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static net.testiteasy.utils.parameters.TestDataParams.testConfig;
 
+@SuppressWarnings("unused")
+// TODO -->
+// -- This screen should be changed and finished in courses.
+// -- You need to change the selectors to the correct ones
+// -- and think over the logic of using this screen.
 public class SearchScreen {
 
     private final By SKIP_BUTTON = By.id("Skip");

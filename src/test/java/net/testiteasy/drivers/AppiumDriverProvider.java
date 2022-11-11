@@ -1,8 +1,8 @@
 package net.testiteasy.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
+import io.appium.java_client.AppiumDriver;
 import net.testiteasy.annotations.Step;
-import net.testiteasy.utils.variables.OSType;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
@@ -21,22 +21,14 @@ public class AppiumDriverProvider implements WebDriverProvider {
     @Step("Create Appium Driver")
     public WebDriver createDriver(Capabilities capabilities) {
 
-        WebDriver driver = null;
+        AppiumDriver driver = null;
 
         switch (testConfig().getRunningPlatform()) {
-            case LOCAL:
-                if (testConfig().getOSType() == OSType.ANDROID) {
-                    driver = new AppiumLocalAndroidDriver().createDriver();
-                    return driver;
-                } else if (testConfig().getOSType() == OSType.IOS) {
-                    driver = new AppiumLocalIOSDriver().createDriver();
-                    return driver;
-                }
-                break;
-            case EPAM_CLOUD: //TODO need to add implementation
-                break;
-
+            case LOCAL -> driver = new AppiumLocalDriver().createDriver();
+            case EPAM_CLOUD -> driver = new AppiumRemoteDriver().createDriver();
         }
+
+        assert driver != null;
         return driver;
     }
 }

@@ -8,7 +8,6 @@ import io.cucumber.java.en.Given;
 import net.testiteasy.configuration.MobileAppiumDriverFactory;
 import org.jetbrains.annotations.NotNull;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseStepDefinitions {
@@ -33,7 +32,7 @@ public class BaseStepDefinitions {
     public void cucumberAfterEachScenario(@NotNull Scenario scenario) {
         scenario.log("Finished Wikipedia Tests with " + scenario.getName());
 
-        closeWebDriver();
+        driverFactory.closeDriver();
 
         report.finish(scenario.getName());
     }
