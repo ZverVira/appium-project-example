@@ -18,6 +18,13 @@ import static org.apache.commons.lang3.StringUtils.lowerCase;
 
 public class MobitruService {
 
+//    public static void main(String[] args) {
+//        MobitruService mobitruService = new MobitruService();
+//        //mobitruService.findAvailableDevice();
+//
+//        mobitruService.takeAvailableDeviceInUseByUniqueId(mobitruService.findAvailableDevice());
+//    }
+
     private final String APP_ALIAS = "wikipedia";
 
     public MobitruService() {
@@ -110,6 +117,8 @@ public class MobitruService {
                         "version", testConfig().getPlatformVersion(),
                         "type", "phone"
                 )
+                        .log()
+                        .all()
                 .when()
                 .get()
                 .then()
@@ -130,6 +139,8 @@ public class MobitruService {
                 .auth()
                 .oauth2(testConfig().getMobitruAuthorizationKey())
                 .contentType("application/json")
+                .log()
+                .all()
                 .when()
                 .post()
                 .then()

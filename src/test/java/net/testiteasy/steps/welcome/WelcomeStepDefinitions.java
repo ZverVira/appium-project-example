@@ -1,5 +1,6 @@
 package net.testiteasy.steps.welcome;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.testiteasy.screens.main.MainScreen;
@@ -17,6 +18,11 @@ public class WelcomeStepDefinitions {
     @Then("user can see Explore icon")
     public void userCanSeeExploreIcon() {
         mainScreen.checkExploreIcon();
+    }
+
+    @Then("user can see the following icons")
+    public void userCanSeeTheFollowingItems(DataTable dataTable) {
+        mainScreen.checkPageIcons(dataTable);
     }
 
     @When("user tap on the search field")
