@@ -1,4 +1,5 @@
 plugins {
+    id "io.qameta.allure" version "2.11.2"
     id 'java'
 }
 
@@ -56,6 +57,8 @@ dependencies {
     testImplementation "org.junit.platform:junit-platform-suite:$junitPlatformVersion"
 
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
+    testImplementation "io.qameta.allure:allure-cucumber7-jvm:2.19.0"
+    testRuntimeOnly('io.qameta.allure:allure-junit5:2.14.0')
 }
 
 task libs(type: Sync) {
@@ -81,12 +84,16 @@ test {
 }
 
 task mobileCucumberTests(type: Test) {
+
     systemProperties = [
             'device.platform' : System.getProperty("device.platform", "android"),
             'device.name' : System.getProperty("device.name", "pixel_3_v9"),
             'env.type' : System.getProperty("env.type", "qa"),
-            'running.platform' : System.getProperty("running.platform", "local")
+            'running.platform' : System.getProperty("running.platform", "local"),
+            'allure.results.directory': "build/allure-results"
     ]
+
     include '**/*RunCucumberTest*'
     useJUnitPlatform()
 }
+
