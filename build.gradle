@@ -90,7 +90,7 @@ task mobileCucumberTests(type: Test) {
             'device.name' : System.getProperty("device.name", "pixel_3_v9"),
             'env.type' : System.getProperty("env.type", "qa"),
             'running.platform' : System.getProperty("running.platform", "local"),
-            'allure.results.directory': "build/allure-results"
+            'allure.results.directory': "allure-results"
     ]
 
     include '**/*RunCucumberTest*'
